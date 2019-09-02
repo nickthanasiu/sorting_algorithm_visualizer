@@ -3,20 +3,26 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 
 import App from './App';
+import ContextWrapper from './components/ContextWrapper';
+import Layout from './components/Layout';
 import Toolbar from './components/Toolbar';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+describe('App component', () => {
+  let wrapper;
 
-it('renders a Toolbar component', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
 
-  console.log(div.innerHTML);
-  expect(div.innerHTML).toContain('Tools...');
+  it('renders a ContextWrapper component', () => {
+    expect(wrapper.find(ContextWrapper).length).toEqual(1);
+  });
 
-  ReactDOM.unmountComponentAtNode(div);
+  it('renders a Layout component', () => {
+    expect(wrapper.find(Layout).length).toEqual(1);
+  });
+  
+  it('renders a Toolbar component', () => {
+    expect(wrapper.find(Toolbar).length).toEqual(1);
+  });
 });

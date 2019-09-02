@@ -12,7 +12,7 @@ function App() {
     <div className="App" style={{ height: '100vh' }}>
       <ContextWrapper>
         <Layout>
-          My App
+          <Toolbar />
         </Layout>
       </ContextWrapper>
     </div>
