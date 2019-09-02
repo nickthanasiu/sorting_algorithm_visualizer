@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
+// Context
+import { DarkModeContext } from '../../hooks/DarkModeContext';
+
+import GenerateArrayBtn from './GenerateArrayBtn';
+
 // Styled components
-const StyledToolbar = styled.div`
-    border: 1px solid red;
+const Toolbar = styled.div`
+    width: 100%;
+    height: 6rem;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
 `;
 
-const Toolbar = () => {
+export default () => {
+    const { darkMode } = useContext(DarkModeContext);
     return (
-        <StyledToolbar>
-            Tools...
-        </StyledToolbar>
+        <Toolbar darkMode={darkMode}>
+            <GenerateArrayBtn />
+        </Toolbar>
     );
 };
-
-export default Toolbar;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { DarkModeContext } from '../../hooks/DarkModeContext';
 
 export default ({ children }) => {
@@ -8,8 +8,10 @@ export default ({ children }) => {
         setDarkMode(darkMode => !darkMode);
     }
 
+    const { theme } = useContext(DarkModeContext);
+
     return (
-        <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
+        <DarkModeContext.Provider value={{ darkMode, toggleDarkMode, theme }}>
             { children }
         </DarkModeContext.Provider>
     );
