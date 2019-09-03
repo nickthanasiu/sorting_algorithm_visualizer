@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
+import { setArraySize } from '../../../actions/array';
 import { DarkModeContext } from '../../../hooks/DarkModeContext';
 
 /*
@@ -63,15 +65,17 @@ const ArraySizeSlider = styled.div`
 
 export default () => {
     const { darkMode, theme } = useContext(DarkModeContext);
-    const [value, setValue] = useState(50);
+    const { arraySize } = useSelector(state => state.arrayReducer);
+    const dispatch = useDispatch();
 
     function handleChange(e) {
-        setValue(e.target.value);
+        dispatch(
+            setArraySize(e.target.value)
+        );
     }
 
     return (
         <ArraySizeSlider 
-            opacity={value > 20 ? (value / 150) : .4} 
             color="#0074D99"
             darkMode={darkMode}
             theme={theme}
@@ -83,7 +87,7 @@ export default () => {
                 id="start"
                 name="array-size"
                 min="10"
-                max="150"
+                max="80"
                 step="10"
                 onChange={handleChange}
             />

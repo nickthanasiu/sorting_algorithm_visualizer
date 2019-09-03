@@ -15,7 +15,12 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 array: generateRandomArray(action.payload.size),
-                arraySize: action.payload.size
+                arraySize: action.payload.size || 50
+            };
+        case SET_ARRAY_SIZE:
+            return {
+                ...state,
+                arraySize: action.payload.size || 50
             };
         default:
             return state;
