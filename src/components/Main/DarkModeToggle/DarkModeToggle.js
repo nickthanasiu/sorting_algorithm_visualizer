@@ -30,10 +30,10 @@ const DarkModeToggle = styled.button`
     -webkit-transition: color .5s ease;
 
     &:hover {
-        box-sizing: border-box;
         border: 1px solid ${props => (
             props.darkMode ? props.theme.dark.primary : props.theme.light.primary
         )};
+            
     }
 
     &:focus {
