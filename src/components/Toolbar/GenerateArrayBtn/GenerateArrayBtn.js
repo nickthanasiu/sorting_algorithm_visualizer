@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { DarkModeContext } from '../../../hooks/DarkModeContext';
+import { generateArray } from '../../../actions/array';
 
 const GenerateArrayBtn = styled.button`
     border: 1px solid ${props => (
@@ -36,10 +38,18 @@ const GenerateArrayBtn = styled.button`
 
 export default () => {
     const { darkMode, theme } = useContext(DarkModeContext);
+    const dispatch = useDispatch();
+    const { arraySize } = useSelector(state => state.arrayReducer);
+
+    function handleClick() {
+        dispatch(generateArray(arraySize));
+    }
+
     return (
         <GenerateArrayBtn
             darkMode={darkMode}
             theme={theme}
+            onClick={handleClick}
         >
             Generate Array
         </GenerateArrayBtn>
