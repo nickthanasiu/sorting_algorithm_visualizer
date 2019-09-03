@@ -9,14 +9,16 @@ const GenerateArrayBtn = styled.button`
     border-radius: 10px;
     width: 8.5rem;
     height: 2.5rem;
+    margin-right: 5rem;
+    background-color: inherit;
     color: ${props => props.darkMode ? props.theme.dark.primary : props.theme.light.primary };
     font-weight: 500;
     font-family: 'Roboto';
+    cursor: pointer;
 `;
 
 export default () => {
     const { darkMode, theme } = useContext(DarkModeContext);
-    console.log(useContext(DarkModeContext));
     return (
         <GenerateArrayBtn
             darkMode={darkMode}
