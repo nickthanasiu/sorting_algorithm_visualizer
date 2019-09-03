@@ -16,9 +16,11 @@ const GenerateArrayBtn = styled.button`
     font-weight: 500;
     font-family: 'Roboto';
     cursor: pointer;
+    
 
     transition: all .2s ease;
     -webkit-transition: all .2s ease;
+    
 
     &:hover {
         background-color: ${props => (

@@ -13,8 +13,10 @@ const sliderThumbStyles = props => (`
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background: ${props.darkMode ? props.theme.dark.secondary : props.theme.light.secondary}
+    background-color: ${props.darkMode ? props.theme.dark.secondary : props.theme.light.secondary}
     cursor: pointer;
+    transition: background-color .5s ease;
+    -webkit-transition: background-color .5s ease;
 `);
 
 const ArraySizeSlider = styled.div`
@@ -22,7 +24,7 @@ const ArraySizeSlider = styled.div`
     display: flex;
     align-items: center;
     color: #888;
-    margin: 2rem 8rem 2rem 0;
+    margin: 2rem 14rem 2rem 0;
 
     .label {
         color: ${props => (
@@ -31,6 +33,8 @@ const ArraySizeSlider = styled.div`
         font-size: .6rem;
         font-weight: 500;
         margin-right: 1.25rem;
+        transition: color .5s ease;
+        -webkit-transition: color .5s ease;
     }
 
     .slider {
@@ -38,10 +42,12 @@ const ArraySizeSlider = styled.div`
         -webkit-appearance: none;
         width: 100%;
         height: .125rem;
-        background: ${props => (
+        background-color: ${props => (
             props.darkMode? props.theme.dark.primary : props.theme.light.primary
         )};
         outline: none;
+        transition: background-color .5s ease;
+        -webkit-transition: background-color .5s ease;
 
         &::-webkit-slider-thumb {
             -webkit-appearance: none;

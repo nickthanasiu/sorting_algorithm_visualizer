@@ -10,6 +10,14 @@ const AlgorithmSelectMenu = styled.div`
     display: flex;
     align-items: center;
 
+    .text {
+        color: ${props => (
+            props.darkMode ? props.theme.dark.text : props.theme.light.text
+        )};
+        transition: color .5s ease;
+        -webkit-transition: color .5s ease;
+    }
+
     .selected-alg {
         width: 3rem;
         margin-left: 1rem;
@@ -21,6 +29,8 @@ const AlgorithmSelectMenu = styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
+        transition: color .5s ease;
+        -webkit-transition: color .5s ease;
     }
 `;
 
@@ -31,7 +41,7 @@ export default () => {
             darkMode={darkMode}
             theme={theme}
         >
-            <span>
+            <span className="text">
                 Select Sorting Algorithm:
             </span>
             <span className="selected-alg">
