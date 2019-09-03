@@ -13,7 +13,7 @@ import AlgorithmSelectMenu from './AlgorithmSelectMenu';
 const Toolbar = styled.div`
     width: 100%;
     height: 6rem;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
     display: flex;
     align-items: center;
 `;

@@ -10,8 +10,8 @@ import { DarkModeContext } from '../../../hooks/DarkModeContext';
 */
 
 const sliderThumbStyles = props => (`
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1rem;
+    height: 1rem;
     border-radius: 50%;
     background: ${props.darkMode ? props.theme.dark.secondary : props.theme.light.secondary}
     cursor: pointer;
@@ -22,13 +22,13 @@ const ArraySizeSlider = styled.div`
     display: flex;
     align-items: center;
     color: #888;
-    margin: 2rem 0;
+    margin: 2rem 8rem 2rem 0;
 
     .label {
         color: ${props => (
             props.darkMode ? props.theme.dark.text : props.theme.light.text
         )};
-        font-size: .75rem;
+        font-size: .6rem;
         font-weight: 500;
         margin-right: 1.25rem;
     }
@@ -37,7 +37,7 @@ const ArraySizeSlider = styled.div`
         flex: 6;
         -webkit-appearance: none;
         width: 100%;
-        height: .25rem;
+        height: .125rem;
         background: ${props => (
             props.darkMode? props.theme.dark.primary : props.theme.light.primary
         )};
