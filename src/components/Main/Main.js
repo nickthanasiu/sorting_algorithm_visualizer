@@ -26,7 +26,7 @@ const ChartContainer = styled.div`
 const Bar = styled.div`
     background-color: ${props => props.theme.light.bar};
     margin-right: .375rem;
-    width: 10px;
+    width: ${props => 768 / (props.arraySize * 3)}px;
     height: ${props => props.num * 3}px;
 `;
 
@@ -37,8 +37,8 @@ export default () => {
         dispatch(generateArray());
     }, []);
     
-    const { array } = useSelector(state => state.arrayReducer);
-    
+    const { array, arraySize } = useSelector(state => state.arrayReducer);
+
 
     return (
         <Main>
@@ -46,10 +46,11 @@ export default () => {
             {array.map((num, index) => {
                     return (
                         <Bar
+                            key={index}
                             darkMode={darkMode}
                             theme={theme}
                             num={num}
-                            key={index}
+                            arraySize={arraySize}
                         />
                     );
                 })}

@@ -91,6 +91,7 @@ export default () => {
                 step="10"
                 onChange={handleChange}
             />
+            {arraySize}
         </ArraySizeSlider>
     );
 };
