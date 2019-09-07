@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { FiMoon, FiSun } from "react-icons/fi";
-import { DarkModeContext } from '../../../hooks/DarkModeContext';
+import { DarkModeContext } from '../../../contexts/DarkModeContext';
 
 const DarkModeToggle = styled.button`
     box-sizing: border-box;

@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 // Context
-import { DarkModeContext } from '../../hooks/DarkModeContext';
+import { DarkModeContext } from '../../contexts/DarkModeContext';
 
 // Components
 import GenerateArrayBtn from './GenerateArrayBtn';
 import ArraySizeSlider from './ArraySizeSlider';
 import AlgorithmSelectMenu from './AlgorithmSelectMenu';
+import SortButton from './SortButton';
 
 // Styled components
 const Toolbar = styled.div`
@@ -25,6 +26,7 @@ export default () => {
             <GenerateArrayBtn />
             <ArraySizeSlider />
             <AlgorithmSelectMenu />
+            <SortButton />
         </Toolbar>
     );
 };

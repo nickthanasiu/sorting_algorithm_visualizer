@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { DarkModeContext } from '../../hooks/DarkModeContext';
+import { DarkModeContext } from '../../contexts/DarkModeContext';
 
 const Layout = styled.div`
     box-sizing: border-box;

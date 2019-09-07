@@ -2,7 +2,11 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { MdExpandMore } from 'react-icons/md';
 
-import { DarkModeContext } from '../../../hooks/DarkModeContext';
+// Context
+import { DarkModeContext } from '../../../contexts/DarkModeContext';
+
+// Custom hooks
+import { useSelectedAlgorithm } from '../../../hooks/useSelectedAlgorithm';
 
 const AlgorithmSelectMenu = styled.div`
     font-size: .6rem;
@@ -36,6 +40,7 @@ const AlgorithmSelectMenu = styled.div`
 
 export default () => {
     const { darkMode, theme } = useContext(DarkModeContext);
+    const selectedAlgorithm = useSelectedAlgorithm();
     return (
         <AlgorithmSelectMenu
             darkMode={darkMode}
@@ -45,7 +50,7 @@ export default () => {
                 Select Sorting Algorithm:
             </span>
             <span className="selected-alg">
-                Merge
+                { selectedAlgorithm }
                 <MdExpandMore size={'.75rem'} />
             </span>
         </AlgorithmSelectMenu>

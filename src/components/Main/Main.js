@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { DarkModeContext } from '../../hooks/DarkModeContext';
+import { DarkModeContext } from '../../contexts/DarkModeContext';
 
 // Actions
 import { generateArray } from '../../actions/array';

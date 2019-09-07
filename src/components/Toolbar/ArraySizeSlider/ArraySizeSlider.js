@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import { setArraySize } from '../../../actions/array';
-import { DarkModeContext } from '../../../hooks/DarkModeContext';
+import { DarkModeContext } from '../../../contexts/DarkModeContext';
 
 /*
     opacity: ${props.opacity}
@@ -26,7 +26,7 @@ const ArraySizeSlider = styled.div`
     display: flex;
     align-items: center;
     color: #888;
-    margin: 2rem 14rem 2rem 0;
+    margin: 2rem 10rem 2rem 0;
 
     .label {
         color: ${props => (
@@ -91,7 +91,6 @@ export default () => {
                 step="10"
                 onChange={handleChange}
             />
-            {arraySize}
         </ArraySizeSlider>
     );
 };
