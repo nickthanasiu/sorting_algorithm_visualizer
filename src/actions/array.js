@@ -1,17 +1,15 @@
 import {
     GENERATE_ARRAY,
     SET_ARRAY_SIZE,
+    SET_ARRAY,
+    RESET_SORTED,
 } from './types';
 
-export const generateArray = size => ({
-    type: GENERATE_ARRAY,
-    payload: { size }
-});
-
-export const setArraySize = size => dispatch => {
+export const generateArray = size => dispatch => {
+    
+    // Purge sorted array
     dispatch({
-        type: SET_ARRAY_SIZE,
-        payload: { size }
+        type: RESET_SORTED
     });
 
     dispatch({
@@ -19,3 +17,17 @@ export const setArraySize = size => dispatch => {
         payload: { size }
     });
 };
+
+export const setArraySize = size => dispatch => {
+    dispatch({
+        type: SET_ARRAY_SIZE,
+        payload: { size }
+    });
+
+    dispatch(generateArray(size));
+};
+
+export const setArray = newArray => ({
+    type: SET_ARRAY,
+    payload: { newArray }
+});

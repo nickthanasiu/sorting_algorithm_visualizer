@@ -1,15 +1,18 @@
 import {
-    SWAP_CHECK,
-    SET_IS_ITERATING
+    SET_PAIR_TO_CHECK,
+    SET_PAIR_TO_SWAP,
+    SET_IS_ITERATING,
 } from './types';
-import { Action } from 'rxjs/internal/scheduler/Action';
 
-export const swapCheck = array => {
-    dispatch({
-        type: SWAP_CHECK,
-        payload: { array }
-    });
-};
+export const setPairToCheck = array => ({
+    type: SET_PAIR_TO_CHECK,
+    payload: { array }
+});
+
+export const setPairToSwap = array => ({
+    type: SET_PAIR_TO_SWAP,
+    payload: { array }
+});
 
 export const setIsIterating = boolean => ({
     type: SET_IS_ITERATING,

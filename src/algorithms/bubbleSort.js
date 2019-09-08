@@ -1,7 +1,12 @@
-export const bubbleSort = (array, dispatch) => {
-    let array = [...array];
-    toDispatch = [];
-    sorted = false;
+// Actions to dispatch
+import { setArray } from '../actions/array';
+import { setPairToCheck, setPairToSwap, setIsIterating } from '../actions/swapCheck';
+import { setSorted } from '../actions/sorted';
+
+export const bubbleSort = (stateArray, dispatch) => {
+    let array = [...stateArray];
+    let toDispatch = [];
+    let sorted = false;
 
     while (!sorted) {
         sorted = true;
@@ -19,7 +24,7 @@ export const bubbleSort = (array, dispatch) => {
                     toDispatch.push([]);
                 }
             }
-            toDispatch([true, i]);
+            toDispatch.push([true, i]);
         }       
     }
 
@@ -28,7 +33,36 @@ export const bubbleSort = (array, dispatch) => {
 };
 
 
-// Helper
+// Recursive helper function
 function handleDispatch(toDispatch, dispatch, array) {
-    
+    if (!toDispatch.length) {
+        dispatch(setPairToCheck(array.map((num, index) => index)));
+        setTimeout(() => {
+            dispatch(setPairToCheck([]));
+            dispatch(setSorted(array.map((num, index) => index)));
+            dispatch(setIsIterating(false));
+        }, 1000);
+        return;
+    }
+
+    let isSwapComplete = toDispatch[0].length > 3;
+    let isTimeToSwap = toDispatch[0].length === 3 || toDispatch[0].length === 0;
+    let isTimeToMakeAnotherPass =
+        toDispatch[0].length === 2 && typeof toDispatch[0][0] === "boolean";
+
+    let dispatchFunction =
+        isSwapComplete ? setArray :
+        isTimeToSwap ? setPairToSwap :
+        isTimeToMakeAnotherPass ? setSorted : setPairToCheck;
+
+    // Remove first array inside toDispatch so:
+    //      - first array is stored for use as dispatchFunction argument
+    //      - new, shortened toDispatch array can be passed into handleDispatch recursively
+    let firstArrayToDispatch = toDispatch.shift();
+    dispatch(dispatchFunction(firstArrayToDispatch));
+
+    // Call handleDispatch function recursively
+    setTimeout(() => {
+        handleDispatch(toDispatch, dispatch, array);
+    }, 10);
 }

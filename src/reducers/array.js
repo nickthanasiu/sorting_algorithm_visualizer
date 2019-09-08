@@ -1,6 +1,7 @@
 import {
     GENERATE_ARRAY,
-    SET_ARRAY_SIZE
+    SET_ARRAY_SIZE,
+    SET_ARRAY,
 } from '../actions/types';
 import { generateRandomArray } from '../utils/generateRandomArray';
 
@@ -21,6 +22,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 arraySize: action.payload.size || 50
+            };
+        case SET_ARRAY:
+            return {
+                ...state,
+                array: action.payload.newArray,
             };
         default:
             return state;
