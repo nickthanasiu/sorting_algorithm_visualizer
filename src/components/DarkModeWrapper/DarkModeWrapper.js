@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { DarkModeContext } from '../../contexts/DarkModeContext';
 
 export default ({ children }) => {

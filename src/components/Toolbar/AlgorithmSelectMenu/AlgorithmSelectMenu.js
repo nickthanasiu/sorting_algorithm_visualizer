@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { MdExpandMore } from 'react-icons/md';
+import { MdExpandMore, MdExpandLess } from 'react-icons/md';
 
 // Context
 import { DarkModeContext } from '../../../contexts/DarkModeContext';
+import { DropdownMenuContext } from '../../../contexts/DropdownMenuContext';
 
 // Custom hooks
 import { useSelectedAlgorithm } from '../../../hooks/useSelectedAlgorithm';
@@ -40,18 +41,21 @@ const AlgorithmSelectMenu = styled.div`
 
 export default () => {
     const { darkMode, theme } = useContext(DarkModeContext);
+    const { isDropdownOpen, toggleDropdown } = useContext(DropdownMenuContext);
     const selectedAlgorithm = useSelectedAlgorithm();
     return (
         <AlgorithmSelectMenu
             darkMode={darkMode}
             theme={theme}
+            onClick={toggleDropdown}
         >
             <span className="text">
                 Select Sorting Algorithm:
             </span>
             <span className="selected-alg">
                 { selectedAlgorithm }
-                <MdExpandMore size={'.75rem'} />
+                { !isDropdownOpen && <MdExpandMore size={'.75rem'} />}
+                { isDropdownOpen && <MdExpandLess size={'.75rem'} />}
             </span>
         </AlgorithmSelectMenu>
     );

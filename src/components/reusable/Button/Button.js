@@ -12,13 +12,11 @@ const Button = styled.button`
     height: 1.875rem;
     margin-right: 5rem;
     margin-left: ${props => props.value === 'Sort' ? '7rem' : '0'};
-    background-color: inherit;
     background-color: ${props => (
         props.value !== 'Sort' ?
             'inherit' : props.darkMode ?
                 props.theme.dark.primary : props.theme.light.primary
     )};
-    color: ${props => props.darkMode ? props.theme.dark.primary : props.theme.light.primary };
     color: ${props => (
         props.value !== 'Sort' ?
             (props.darkMode ? props.theme.dark.primary : props.theme.light.primary) : 
@@ -28,6 +26,10 @@ const Button = styled.button`
     font-weight: 500;
     font-family: 'Roboto';
     cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 
     transition: all .2s ease;

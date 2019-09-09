@@ -8,3 +8,5 @@ export const SET_IS_ITERATING = 'set_is_iterating';
 
 export const SET_SORTED = 'set_sorted';
 export const RESET_SORTED = 'reset_sorted';
+
+export const SET_ALGORITHM = 'set_algorithm';

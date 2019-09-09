@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 // Components
-import ContextWrapper from './components/ContextWrapper';
+import DarkModeWrapper from './components/DarkModeWrapper';
+import DropdownWrapper from './components/DropdownWrapper';
 import Layout from './components/Layout';
 import Toolbar from './components/Toolbar';
 import Main from './components/Main';
@@ -16,12 +17,14 @@ function App() {
       maxWidth: '100vw',
       overflow: 'hidden',
     }}>
-      <ContextWrapper>
-        <Layout>
-          <Toolbar />
-          <Main />
-        </Layout>
-      </ContextWrapper>
+      <DarkModeWrapper>
+        <DropdownWrapper>
+          <Layout>
+            <Toolbar />
+            <Main />
+          </Layout>
+        </DropdownWrapper>
+      </DarkModeWrapper>
     </div>
   );
 }
